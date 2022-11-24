@@ -1,0 +1,21 @@
+{
+    "request": {
+        "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.139 Safari/537.36",
+        "jquery": "jQuery112409085623956988387",
+        "ver": "srun_bx1"
+    },
+    "encrypt": {
+        "alpha": "LVoJPiCN2R8G90yg+hmFHuacZ1OWMnrsSTXkYpUq/3dlbfKwv6xztjI7DeBE45QA",
+        "pad_char": "="
+    },
+    "misc": {
+        "n": "200",
+        "type": "1",
+        "os": "Windows 98",
+        "name": "Windows"
+    },
+    "run": {
+        "retry": 5,
+        "interval": 3600
+    }
+}
