@@ -4,6 +4,7 @@ import base64
 import requests
 
 from urllib.parse import urlparse, parse_qs
+from requests.utils import dict_from_cookiejar
 
 with open('config.json', 'r', encoding='utf-8') as file:
     config = json.loads(file.read())
@@ -51,15 +52,17 @@ def get_ip() -> str:
     return soc.getsockname()[0]
 
 
-def get_acid() -> int:
+def get_acid_cookies() -> (int, dict):
+    session = requests.session()
+    request = session.get('https://gw.buaa.edu.cn', verify=False)
+    cookies = dict_from_cookiejar(session.cookies)
     try:
-        request = requests.get('https://gw.buaa.edu.cn', verify=False)
         param = parse_qs(urlparse(request.url).query)
         if param.get('ac_id') is not None and len(param['ac_id']) == 1:
-            return int(param['ac_id'][0])
+            return int(param['ac_id'][0]), cookies
     except ValueError:
         pass
-    return 1
+    return 1, cookies
 
 
 def test_connect() -> bool:

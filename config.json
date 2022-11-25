@@ -14,6 +14,11 @@
         "os": "Windows 98",
         "name": "Windows"
     },
+    "proxies": {
+        "enable": false,
+        "http": "127.0.0.1:8888",
+        "https": "127.0.0.1:8888"
+    },
     "run": {
         "retry": 5,
         "interval": 3600
