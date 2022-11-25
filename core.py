@@ -1,5 +1,6 @@
 import time
 import json
+import random
 import requests
 
 from utils import get_info_str, get_acid, get_ip
@@ -23,7 +24,7 @@ def get_ip_token(username: str) -> (str, str):
         'username': username,
         'ip': get_ip(),
         '_': times
-    }, times - 2)
+    }, times - random.randint(1, 5))
     return res['client_ip'], res['challenge']
 
 
@@ -49,4 +50,4 @@ def login(username: str, password: str) -> dict:
         'name': config['misc']['name'],
         'double_stack': '0',
         '_': times
-    }, times - 2)
+    }, times - random.randint(1, 5))

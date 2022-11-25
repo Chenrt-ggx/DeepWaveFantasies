@@ -1,6 +1,7 @@
 import sys
 import json
 import time
+import random
 import urllib3
 import datetime
 
@@ -26,7 +27,7 @@ def do_login() -> bool:
             return True
         else:
             print(str(datetime.datetime.now()) + ': login retrying')
-            time.sleep(1)
+            time.sleep(0.5 + random.random())
     print(str(datetime.datetime.now()) + ': login failed')
     return False
 
